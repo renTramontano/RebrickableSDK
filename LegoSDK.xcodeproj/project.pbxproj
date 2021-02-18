@@ -13,7 +13,6 @@
 		F9A91D3925DDB80E00AE87BC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A91D3825DDB80E00AE87BC /* APIManager.swift */; };
 		F9A91D3D25DDB91900AE87BC /* LegoSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A91D3C25DDB91900AE87BC /* LegoSet.swift */; };
 		F9A91D6525DE6C9900AE87BC /* LegoSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A91D6425DE6C9900AE87BC /* LegoSets.swift */; };
-		F9A91D6E25DE6EE900AE87BC /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A91D6D25DE6EE900AE87BC /* URL+.swift */; };
 		F9A91DB025DE800100AE87BC /* LegoSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A91DAF25DE800100AE87BC /* LegoSDKTests.swift */; };
 		F9A91DB225DE800100AE87BC /* LegoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A91D2825DDB77B00AE87BC /* LegoSDK.framework */; };
 		F9A91DC725DE86D600AE87BC /* UTHttpServerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A91DC625DE86D600AE87BC /* UTHttpServerBuilder.swift */; };
@@ -61,7 +60,6 @@
 		F9A91D3825DDB80E00AE87BC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		F9A91D3C25DDB91900AE87BC /* LegoSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoSet.swift; sourceTree = "<group>"; };
 		F9A91D6425DE6C9900AE87BC /* LegoSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoSets.swift; sourceTree = "<group>"; };
-		F9A91D6D25DE6EE900AE87BC /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		F9A91DAD25DE800100AE87BC /* LegoSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LegoSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A91DAF25DE800100AE87BC /* LegoSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoSDKTests.swift; sourceTree = "<group>"; };
 		F9A91DB125DE800100AE87BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				F9068E1925DF010D00C3187A /* String+.swift */,
-				F9A91D6D25DE6EE900AE87BC /* URL+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -298,7 +295,6 @@
 			files = (
 				F9A97F8F25DEE46800196737 /* LegoMinifigure.swift in Sources */,
 				F9A97F8425DEE06000196737 /* LegoColors.swift in Sources */,
-				F9A91D6E25DE6EE900AE87BC /* URL+.swift in Sources */,
 				F9A97F8B25DEE28F00196737 /* LegoMinifigures.swift in Sources */,
 				F9068E1125DEFE5700C3187A /* Endpoint.swift in Sources */,
 				F9A91D6525DE6C9900AE87BC /* LegoSets.swift in Sources */,

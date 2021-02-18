@@ -6,6 +6,7 @@ struct Endpoint {
     private static let apiLegoV3 = "/api/v3/lego"
     private static let baseUrl = scheme + rebrickableHostName + apiLegoV3
 
+    static let getUserToken = baseUrl + "/_token//"
     static let getLegoColors = baseUrl + "/colors/"
     static let getLegoSets = baseUrl + "/sets/"
     static let getLegoMinifigures = baseUrl + "/minifigs/"

@@ -4,7 +4,7 @@ import Swifter
 import Combine
 
 class LegoAPITests: UnitTestCase {
-    private let apiManager = APIManager()
+    private let legoApi = LegoApi()
     private var cancellable: AnyCancellable?
 
     func testGetLegoColors() throws {
@@ -21,9 +21,7 @@ class LegoAPITests: UnitTestCase {
             })
             .buildAndStart()
         // WHEN
-        cancellable = APIManager().makeRequest(to: URL(string: LegoSDK.Endpoint.getLegoColors)!, withHttpMethod: .get)
-            .map { $0.data }
-            .decode(type: LegoColors.self, decoder: JSONDecoder())
+        cancellable = legoApi.getLegoColors()
             // THEN
             .sink(receiveCompletion: { _ in exp1.fulfill() },
                   receiveValue: { _ in exp2.fulfill() })
@@ -47,9 +45,7 @@ class LegoAPITests: UnitTestCase {
             })
             .buildAndStart()
         // WHEN
-        cancellable = APIManager().makeRequest(to: URL(string: LegoSDK.Endpoint.getLegoMinifigures)!, withHttpMethod: .get)
-            .map { $0.data }
-            .decode(type: LegoMinifigures.self, decoder: JSONDecoder())
+        cancellable = legoApi.getLegoMinifigures()
             // THEN
             .sink(receiveCompletion: { _ in exp1.fulfill() },
                   receiveValue: { _ in exp2.fulfill() })
@@ -73,9 +69,7 @@ class LegoAPITests: UnitTestCase {
             })
             .buildAndStart()
         // WHEN
-        cancellable = APIManager().makeRequest(to: URL(string: LegoSDK.Endpoint.getLegoSets)!, withHttpMethod: .get)
-            .map { $0.data }
-            .decode(type: LegoSets.self, decoder: JSONDecoder())
+        cancellable = legoApi.getLegoSets()
             // THEN
             .sink(receiveCompletion: { _ in exp1.fulfill() },
                   receiveValue: { _ in exp2.fulfill() })
