@@ -1,4 +1,4 @@
-**Lego SDK** provides [Rebrickable API](https://rebrickable.com/api/v3/docs/?key=5d31bd9f6fe3ad39cbcc573bd64bada1)
+**LegoSDK** is a framework that uses [Rebrickable APIs](https://rebrickable.com/api/v3/docs/?key=5d31bd9f6fe3ad39cbcc573bd64bada1) to build their own apps that want to use the Rebrickable database.
 
 ## Getting Started
 ### Installation with Carthage
