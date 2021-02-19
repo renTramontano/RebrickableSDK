@@ -9,7 +9,7 @@ github "https://github.com/renTramontano/LegoSDK"
 ```
 
 ## Use LegoSDK in your code
-To use the SDK generate the `API Key` from the following address: https://rebrickable.com/users/kingborn187/settings/#api
+To use the SDK generate the [API Key](https://rebrickable.com/users/kingborn187/settings/#api)
 ```swift
 let legoApi = LegoAPI(apiKey: "<YOUR_API_KEY>")
 ```
