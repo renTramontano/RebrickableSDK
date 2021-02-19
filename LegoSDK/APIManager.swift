@@ -2,18 +2,12 @@ import Foundation
 import Combine
 
 final class APIManager {
-    private var cancellable: AnyCancellable?
-    private var userToken: String?
+    private let apiKey: String
 
-    public func userAuthentication(username: String, password: String) {
-        let httpBodyParameters = ["username": username, "password": password]
-        cancellable = makeRequest(to: Endpoint.getUserToken.toUrl, httpBody: httpBodyParameters, withHttpMethod: .post)
-            .map { $0.data }
-            .decode(type: String.self, decoder: JSONDecoder())
-            .sink(receiveCompletion: { _ in },
-                  receiveValue: { self.userToken = $0 })
+    init(apiKey: String) {
+        self.apiKey = apiKey
     }
-    
+
     public func makeRequest(to url: URL, httpBody parameters: [String: String] = [:], withHttpMethod httpMethod: HttpMethod) -> URLSession.DataTaskPublisher {
         let urlRequest = prepareRequest(with: url, parameters: parameters, httpMethod: httpMethod)
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
@@ -23,8 +17,7 @@ final class APIManager {
         var urlReqest = URLRequest(url: url)
         urlReqest.httpMethod = httpMethod.rawValue
         urlReqest.setValue("application/json", forHTTPHeaderField: "Accept")
-        // TODO: REMOVE
-        urlReqest.setValue("key \(userToken ?? "262a544a78e1cbca7f70541ce6e6bc2c")", forHTTPHeaderField: "Authorization")
+        urlReqest.setValue("key \(apiKey)", forHTTPHeaderField: "Authorization")
         urlReqest.httpBody = getHttpBody(with: parameters)
         return urlReqest
     }
@@ -38,6 +31,9 @@ final class APIManager {
 extension APIManager {
     public enum HttpMethod: String {
         case get = "GET"
-        case post = "PUT"
+        case post = "POST"
+        case put = "PUT"
+        case patch = "PATCH"
+        case delete = "DELETE"
     }
 }
