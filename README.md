@@ -2,8 +2,6 @@
 **Lego SDK** provides [Rebrickable API](https://rebrickable.com/api/v3/docs/?key=5d31bd9f6fe3ad39cbcc573bd64bada1)
 
 ## Installation with Carthage
-Carthage support is offered as a prebuilt binary.
-
 Add the following to your **Cartfile**:
 
 ```
