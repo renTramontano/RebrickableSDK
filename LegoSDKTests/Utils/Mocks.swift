@@ -83,3 +83,20 @@ extension LegoSet {
                 last_modified_dt: String.mock())
     }
 }
+
+extension LegoThemes {
+    static func mock() -> LegoThemes {
+        LegoThemes(count: Int.mock(),
+                   next: URL.mock(),
+                   previous: URL.mock(),
+                   results: [LegoTheme.mock()])
+    }
+}
+
+extension LegoTheme {
+    static func mock() -> LegoTheme {
+        LegoTheme(id: Int.mock(),
+                  parent_id: Int.mock(),
+                  name: String.mock())
+    }
+}

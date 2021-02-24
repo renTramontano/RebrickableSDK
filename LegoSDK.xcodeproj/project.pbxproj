@@ -26,6 +26,8 @@
 		F9A97F8B25DEE28F00196737 /* LegoMinifigures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A97F8A25DEE28F00196737 /* LegoMinifigures.swift */; };
 		F9A97F8F25DEE46800196737 /* LegoMinifigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A97F8E25DEE46700196737 /* LegoMinifigure.swift */; };
 		F9B7A8F625DFFA63005D8ED5 /* UsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7A8F525DFFA63005D8ED5 /* UsersAPI.swift */; };
+		F9B80FED25E6F586003DD7F5 /* LegoThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B80FEC25E6F586003DD7F5 /* LegoThemes.swift */; };
+		F9B80FF025E6F5E4003DD7F5 /* LegoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B80FEF25E6F5E4003DD7F5 /* LegoTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		F9A97F8A25DEE28F00196737 /* LegoMinifigures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoMinifigures.swift; sourceTree = "<group>"; };
 		F9A97F8E25DEE46700196737 /* LegoMinifigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoMinifigure.swift; sourceTree = "<group>"; };
 		F9B7A8F525DFFA63005D8ED5 /* UsersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAPI.swift; sourceTree = "<group>"; };
+		F9B80FEC25E6F586003DD7F5 /* LegoThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoThemes.swift; sourceTree = "<group>"; };
+		F9B80FEF25E6F5E4003DD7F5 /* LegoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 				F9A97F8A25DEE28F00196737 /* LegoMinifigures.swift */,
 				F9A91D3C25DDB91900AE87BC /* LegoSet.swift */,
 				F9A91D6425DE6C9900AE87BC /* LegoSets.swift */,
+				F9B80FEF25E6F5E4003DD7F5 /* LegoTheme.swift */,
+				F9B80FEC25E6F586003DD7F5 /* LegoThemes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,8 +304,10 @@
 			files = (
 				F9A97F8F25DEE46800196737 /* LegoMinifigure.swift in Sources */,
 				F9A97F8425DEE06000196737 /* LegoColors.swift in Sources */,
+				F9B80FF025E6F5E4003DD7F5 /* LegoTheme.swift in Sources */,
 				F9B7A8F625DFFA63005D8ED5 /* UsersAPI.swift in Sources */,
 				F9A97F8B25DEE28F00196737 /* LegoMinifigures.swift in Sources */,
+				F9B80FED25E6F586003DD7F5 /* LegoThemes.swift in Sources */,
 				F9068E1125DEFE5700C3187A /* Endpoint.swift in Sources */,
 				F9A91D6525DE6C9900AE87BC /* LegoSets.swift in Sources */,
 				F9A91D3D25DDB91900AE87BC /* LegoSet.swift in Sources */,

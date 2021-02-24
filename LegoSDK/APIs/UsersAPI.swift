@@ -12,7 +12,7 @@ public final class UsersAPI {
     
     public func userAuthentication(username: String, password: String) {
         let httpBodyParameters = ["username": username, "password": password]
-        apiManger.makeRequest(to: Endpoint.getUserToken.toUrl, httpBody: httpBodyParameters, withHttpMethod: .post)
+        apiManger.makeRequest(to: Endpoint.token.toUrl, httpBody: httpBodyParameters, withHttpMethod: .post)
             .map { $0.data }
             .decode(type: String.self, decoder: JSONDecoder())
             .sink(receiveCompletion: { _ in },
