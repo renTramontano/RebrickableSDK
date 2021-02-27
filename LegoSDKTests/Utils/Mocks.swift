@@ -62,6 +62,29 @@ extension LegoMinifigure {
     }
 }
 
+extension LegoMinifiguresParts {
+    static func mock() -> LegoMinifiguresParts {
+        LegoMinifiguresParts(count: Int.mock(),
+                        next: URL.mock(),
+                        previous: URL.mock(),
+                        results: [LegoMinifiguresPart.mock()])
+    }
+}
+
+extension LegoMinifiguresPart {
+    static func mock() -> LegoMinifiguresPart {
+        LegoMinifiguresPart(id: Int.mock(),
+                            inv_part_id: Int.mock(),
+                            part: LegoPart.mock(),
+                            color: LegoColor.mock(),
+                            set_num: String.mock(),
+                            quantity: Int.mock(),
+                            is_spare: Bool.mock(),
+                            element_id: String.mock(),
+                            num_sets: Int.mock())
+    }
+}
+
 extension LegoSets {
     static func mock() -> LegoSets {
         LegoSets(count: Int.mock(),

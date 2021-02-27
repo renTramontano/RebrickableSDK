@@ -29,6 +29,27 @@ public class LegoAPI {
             .eraseToAnyPublisher()
     }
 
+    public func getLegoMinifigure(with setNum: String) -> AnyPublisher<LegoMinifigure, Error> {
+        apiManger.makeRequest(to: Endpoint.minifig(with: setNum).toUrl, withHttpMethod: .get)
+            .map { $0.data }
+            .decode(type: LegoMinifigure.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+
+    public func getLegoMinifigureParts(with setNum: String) -> AnyPublisher<LegoMinifiguresParts, Error> {
+        apiManger.makeRequest(to: Endpoint.minifigParts(with: setNum).toUrl, withHttpMethod: .get)
+            .map { $0.data }
+            .decode(type: LegoMinifiguresParts.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+
+    public func getLegoMinifigureSets(with setNum: String) -> AnyPublisher<LegoMinifigures, Error> {
+        apiManger.makeRequest(to: Endpoint.minifigSets(with: setNum).toUrl, withHttpMethod: .get)
+            .map { $0.data }
+            .decode(type: LegoMinifigures.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+
     public func getLegoThemes() -> AnyPublisher<LegoThemes, Error> {
         apiManger.makeRequest(to: Endpoint.themes.toUrl, withHttpMethod: .get)
             .map { $0.data }
