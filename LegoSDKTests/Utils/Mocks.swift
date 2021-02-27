@@ -100,3 +100,24 @@ extension LegoTheme {
                   name: String.mock())
     }
 }
+
+extension LegoParts {
+    static func mock() -> LegoParts {
+        LegoParts(count: Int.mock(),
+                  next: URL.mock(),
+                  previous: URL.mock(),
+                  results: [LegoPart.mock()])
+    }
+}
+
+extension LegoPart {
+    static func mock() -> LegoPart {
+        LegoPart(part_num: String.mock(),
+                 name: String.mock(),
+                 part_cat_id: Int.mock(),
+                 part_url: URL.mock(),
+                 part_img_url: URL.mock(),
+                 external_ids: [:],
+                 print_of: String.mock())
+    }
+}

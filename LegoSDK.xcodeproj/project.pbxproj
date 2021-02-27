@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F9068E1125DEFE5700C3187A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9068E1025DEFE5700C3187A /* Endpoint.swift */; };
 		F9068E1A25DF010D00C3187A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9068E1925DF010D00C3187A /* String+.swift */; };
+		F9182A8125E7A87D00876396 /* LegoParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9182A8025E7A87D00876396 /* LegoParts.swift */; };
+		F9182A8425E7A8DE00876396 /* LegoPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9182A8325E7A8DE00876396 /* LegoPart.swift */; };
 		F9A91D3625DDB7C500AE87BC /* LegoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A91D3525DDB7C500AE87BC /* LegoAPI.swift */; };
 		F9A91D3925DDB80E00AE87BC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A91D3825DDB80E00AE87BC /* APIManager.swift */; };
 		F9A91D3D25DDB91900AE87BC /* LegoSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A91D3C25DDB91900AE87BC /* LegoSet.swift */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		F9068E1025DEFE5700C3187A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F9068E1925DF010D00C3187A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		F9182A8025E7A87D00876396 /* LegoParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoParts.swift; sourceTree = "<group>"; };
+		F9182A8325E7A8DE00876396 /* LegoPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoPart.swift; sourceTree = "<group>"; };
 		F9A91D2825DDB77B00AE87BC /* LegoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LegoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A91D2C25DDB77B00AE87BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9A91D3525DDB7C500AE87BC /* LegoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoAPI.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				F9A97F8325DEE06000196737 /* LegoColors.swift */,
 				F9A97F8E25DEE46700196737 /* LegoMinifigure.swift */,
 				F9A97F8A25DEE28F00196737 /* LegoMinifigures.swift */,
+				F9182A8325E7A8DE00876396 /* LegoPart.swift */,
+				F9182A8025E7A87D00876396 /* LegoParts.swift */,
 				F9A91D3C25DDB91900AE87BC /* LegoSet.swift */,
 				F9A91D6425DE6C9900AE87BC /* LegoSets.swift */,
 				F9B80FEF25E6F5E4003DD7F5 /* LegoTheme.swift */,
@@ -302,7 +308,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9182A8425E7A8DE00876396 /* LegoPart.swift in Sources */,
 				F9A97F8F25DEE46800196737 /* LegoMinifigure.swift in Sources */,
+				F9182A8125E7A87D00876396 /* LegoParts.swift in Sources */,
 				F9A97F8425DEE06000196737 /* LegoColors.swift in Sources */,
 				F9B80FF025E6F5E4003DD7F5 /* LegoTheme.swift in Sources */,
 				F9B7A8F625DFFA63005D8ED5 /* UsersAPI.swift in Sources */,

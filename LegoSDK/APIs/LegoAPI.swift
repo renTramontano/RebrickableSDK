@@ -35,4 +35,11 @@ public class LegoAPI {
             .decode(type: LegoThemes.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
+
+    public func getLegoParts() -> AnyPublisher<LegoParts, Error> {
+        apiManger.makeRequest(to: Endpoint.parts.toUrl, withHttpMethod: .get)
+            .map { $0.data }
+            .decode(type: LegoParts.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
 }

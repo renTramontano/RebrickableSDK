@@ -102,4 +102,28 @@ class LegoAPITests: UnitTestCase {
             print("Error:\(String(describing: error))")
         }
     }
+
+    func testGetLegoParts() throws {
+        // GIVEN
+        let legoThemes = LegoParts.mock()
+        let exp1 = expectation(description: "receiveCompletion")
+        let exp2 = expectation(description: "receiveValue")
+
+        try httpServerBuilder
+            .route("/parts", { (request, callCount) -> (HttpResponse) in
+                XCTAssertEqual(request.method, APIManager.HttpMethod.get.rawValue)
+                XCTAssertEqual(callCount, 1)
+                return HttpResponse.encode(value: legoThemes)
+            })
+            .buildAndStart()
+        // WHEN
+        cancellable = legoApi.getLegoParts()
+            // THEN
+            .sink(receiveCompletion: { _ in exp1.fulfill() },
+                  receiveValue: { _ in exp2.fulfill() })
+
+        waitForExpectations(timeout: 3) { (error) in
+            print("Error:\(String(describing: error))")
+        }
+    }
 }

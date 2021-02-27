@@ -11,4 +11,5 @@ struct Endpoint {
     static let sets = baseUrl + "/sets/"
     static let minifigs = baseUrl + "/minifigs/"
     static let themes = baseUrl + "/themes/"
+    static let parts = baseUrl + "/parts/"
 }
