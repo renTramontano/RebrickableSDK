@@ -7,15 +7,15 @@ Add the following to your **Cartfile**:
 ```
 github "https://github.com/renTramontano/LegoSDK"
 ```
+then:
+```
+carthage update --platform ios
+```
 
 ### Usage
 To use the SDK generate the [API Key](https://rebrickable.com/users/kingborn187/settings/#api)
 ```swift
 let legoApi = LegoAPI(apiKey: "<YOUR_API_KEY>")
-```
-then:
-```swift
-carthage update --platform ios
 ```
 
 ## License
