@@ -13,6 +13,10 @@ To use the SDK generate the [API Key](https://rebrickable.com/users/kingborn187/
 ```swift
 let legoApi = LegoAPI(apiKey: "<YOUR_API_KEY>")
 ```
+then:
+```swift
+carthage update --platform ios
+```
 
 ## License
 LegoSDK is licensed under the MIT License. See the LICENSE file for more information.
