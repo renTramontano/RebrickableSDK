@@ -15,6 +15,7 @@ public final class UsersAPI {
         apiManger.makeRequest(to: Endpoint.token.toUrl, httpBody: httpBodyParameters, withHttpMethod: .post)
             .map { $0.data }
             .decode(type: String.self, decoder: JSONDecoder())
+            .mapToLegoError()
             .sink(receiveCompletion: { _ in },
                   receiveValue: { self.userToken = $0 })
             .store(in: &bag)
