@@ -2,7 +2,7 @@ import Foundation
 import Combine
 
 public enum LegoError: Error {
-    case deconde
+    case decode
     case formatRequestWrong
     case invalidApiKey
     case notItemAcess
@@ -12,7 +12,7 @@ public enum LegoError: Error {
 
     var message: String {
         switch self {
-            case .deconde: return ""
+            case .decode: return ""
             case .formatRequestWrong : return "Something was wrong with the format of your request"
             case .invalidApiKey : return "Unauthorized - your API key is invalid"
             case .notItemAcess : return "Forbidden - you do not have access to operate on the requested item(s)"
@@ -23,12 +23,11 @@ public enum LegoError: Error {
     }
 }
 
-
 extension Publisher {
     func mapToLegoError() -> Publishers.MapError<Self, LegoError> {
         mapError { error -> LegoError in
             switch error {
-                case is DecodingError: return LegoError.deconde
+                case is DecodingError: return LegoError.decode
                 case is URLError: return error.toLegoError
                 default: return .generic(error)
             }
