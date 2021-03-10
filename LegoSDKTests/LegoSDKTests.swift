@@ -31,9 +31,105 @@ class LegoAPITests: UnitTestCase {
         }
     }
 
+    func testGetLegoColor() throws {
+        // GIVEN
+        let legoColors = LegoColor.mock()
+        let exp1 = expectation(description: "receiveCompletion")
+        let exp2 = expectation(description: "receiveValue")
+
+        try httpServerBuilder
+            .route("/colors", { (request, callCount) -> (HttpResponse) in
+                XCTAssertEqual(request.method, APIManager.HttpMethod.get.rawValue)
+                XCTAssertEqual(callCount, 1)
+                return HttpResponse.encode(value: legoColors)
+            })
+            .buildAndStart()
+        // WHEN
+        cancellable = legoApi.getLegoColor(with: 1)
+            // THEN
+            .sink(receiveCompletion: { _ in exp1.fulfill() },
+                  receiveValue: { _ in exp2.fulfill() })
+
+        waitForExpectations(timeout: 3) { (error) in
+            print("Error:\(String(describing: error))")
+        }
+    }
+
+    func testGetLegoElement() throws {
+        // GIVEN
+        let legoElement = LegoElement.mock()
+        let exp1 = expectation(description: "receiveCompletion")
+        let exp2 = expectation(description: "receiveValue")
+
+        try httpServerBuilder
+            .route("/elements", { (request, callCount) -> (HttpResponse) in
+                XCTAssertEqual(request.method, APIManager.HttpMethod.get.rawValue)
+                XCTAssertEqual(callCount, 1)
+                return HttpResponse.encode(value: legoElement)
+            })
+            .buildAndStart()
+        // WHEN
+        cancellable = legoApi.getLegoElement(with: "6099483")
+            // THEN
+            .sink(receiveCompletion: { _ in exp1.fulfill() },
+                  receiveValue: { _ in exp2.fulfill() })
+
+        waitForExpectations(timeout: 3) { (error) in
+            print("Error:\(String(describing: error))")
+        }
+    }
+
+    func testGetLegoPartCategories() throws {
+        // GIVEN
+        let partCategories = LegoPartCategories.mock()
+        let exp1 = expectation(description: "receiveCompletion")
+        let exp2 = expectation(description: "receiveValue")
+
+        try httpServerBuilder
+            .route("/elements", { (request, callCount) -> (HttpResponse) in
+                XCTAssertEqual(request.method, APIManager.HttpMethod.get.rawValue)
+                XCTAssertEqual(callCount, 1)
+                return HttpResponse.encode(value: partCategories)
+            })
+            .buildAndStart()
+        // WHEN
+        cancellable = legoApi.getLegoPartCategories()
+            // THEN
+            .sink(receiveCompletion: { _ in exp1.fulfill() },
+                  receiveValue: { _ in exp2.fulfill() })
+
+        waitForExpectations(timeout: 3) { (error) in
+            print("Error:\(String(describing: error))")
+        }
+    }
+
+    func testGetLegoPartCategoriesWithId() throws {
+        // GIVEN
+        let partCategory = LegoPartCategory.mock()
+        let exp1 = expectation(description: "receiveCompletion")
+        let exp2 = expectation(description: "receiveValue")
+
+        try httpServerBuilder
+            .route("/elements", { (request, callCount) -> (HttpResponse) in
+                XCTAssertEqual(request.method, APIManager.HttpMethod.get.rawValue)
+                XCTAssertEqual(callCount, 1)
+                return HttpResponse.encode(value: partCategory)
+            })
+            .buildAndStart()
+        // WHEN
+        cancellable = legoApi.getLegoPartCategory(with: 49)
+            // THEN
+            .sink(receiveCompletion: { _ in exp1.fulfill() },
+                  receiveValue: { _ in exp2.fulfill() })
+
+        waitForExpectations(timeout: 3) { (error) in
+            print("Error:\(String(describing: error))")
+        }
+    }
+
     func testGetLegoMinifigures() throws {
         // GIVEN
-        let legoMinifigures = LegoMinifigures.mock()
+        let legoMinifigures = LegoSets.mock()
         let exp1 = expectation(description: "receiveCompletion")
         let exp2 = expectation(description: "receiveValue")
 
@@ -57,7 +153,7 @@ class LegoAPITests: UnitTestCase {
 
     func testGetLegoMinifigureWithSetNum() throws {
         // GIVEN
-        let legoMinifigure = LegoMinifigure.mock()
+        let legoMinifigure = LegoSet.mock()
         let exp1 = expectation(description: "receiveCompletion")
         let exp2 = expectation(description: "receiveValue")
 
@@ -69,7 +165,7 @@ class LegoAPITests: UnitTestCase {
             })
             .buildAndStart()
         // WHEN
-        cancellable = legoApi.getLegoMinifigure(with: "fig-000001")
+        cancellable = legoApi.getLegoMinifigureDetails(with: "fig-000001")
             // THEN
             .sink(receiveCompletion: { _ in exp1.fulfill() },
                   receiveValue: { _ in exp2.fulfill() })
@@ -81,7 +177,7 @@ class LegoAPITests: UnitTestCase {
 
     func testGetLegoMinifigureParts() throws {
         // GIVEN
-        let legoParts = LegoMinifiguresParts.mock()
+        let legoParts = LegoInventoryParts.mock()
         let exp1 = expectation(description: "receiveCompletion")
         let exp2 = expectation(description: "receiveValue")
 
@@ -105,7 +201,7 @@ class LegoAPITests: UnitTestCase {
 
     func testGetLegoMinifigureSets() throws {
         // GIVEN
-        let legoMinifigures = LegoMinifigures.mock()
+        let legoMinifigures = LegoSets.mock()
         let exp1 = expectation(description: "receiveCompletion")
         let exp2 = expectation(description: "receiveValue")
 
@@ -117,7 +213,7 @@ class LegoAPITests: UnitTestCase {
             })
             .buildAndStart()
         // WHEN
-        cancellable = legoApi.getLegoMinifigureSets(with: "fig-000001")
+        cancellable = legoApi.getLegoSets(with: "fig-000001")
             // THEN
             .sink(receiveCompletion: { _ in exp1.fulfill() },
                   receiveValue: { _ in exp2.fulfill() })
@@ -166,6 +262,30 @@ class LegoAPITests: UnitTestCase {
             .buildAndStart()
         // WHEN
         cancellable = legoApi.getLegoThemes()
+            // THEN
+            .sink(receiveCompletion: { _ in exp1.fulfill() },
+                  receiveValue: { _ in exp2.fulfill() })
+
+        waitForExpectations(timeout: 3) { (error) in
+            print("Error:\(String(describing: error))")
+        }
+    }
+
+    func testGetLegoTheme() throws {
+        // GIVEN
+        let legoThemes = LegoTheme.mock()
+        let exp1 = expectation(description: "receiveCompletion")
+        let exp2 = expectation(description: "receiveValue")
+
+        try httpServerBuilder
+            .route("/themes", { (request, callCount) -> (HttpResponse) in
+                XCTAssertEqual(request.method, APIManager.HttpMethod.get.rawValue)
+                XCTAssertEqual(callCount, 1)
+                return HttpResponse.encode(value: legoThemes)
+            })
+            .buildAndStart()
+        // WHEN
+        cancellable = legoApi.getLegoTheme(with: 1)
             // THEN
             .sink(receiveCompletion: { _ in exp1.fulfill() },
                   receiveValue: { _ in exp2.fulfill() })

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct LegoMinifiguresPart: Hashable, Codable {
+public struct LegoInventoryPart: Hashable, Codable {
     public let id: Int
     public let inv_part_id: Int
     public let part: LegoPart

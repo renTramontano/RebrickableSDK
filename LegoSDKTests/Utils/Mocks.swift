@@ -42,38 +42,18 @@ extension LegoColor {
     }
 }
 
-extension LegoMinifigures {
-    static func mock() -> LegoMinifigures {
-        LegoMinifigures(count: Int.mock(),
+extension LegoInventoryParts {
+    static func mock() -> LegoInventoryParts {
+        LegoInventoryParts(count: Int.mock(),
                         next: URL.mock(),
                         previous: URL.mock(),
-                        results: [LegoMinifigure.mock()])
+                        results: [LegoInventoryPart.mock()])
     }
 }
 
-extension LegoMinifigure {
-    static func mock() -> LegoMinifigure {
-        LegoMinifigure(set_num: String.mock(),
-                       name: String.mock(),
-                       num_parts: Int.mock(),
-                       set_img_url: URL.mock(),
-                       set_url: URL.mock(),
-                       last_modified_dt: String.mock())
-    }
-}
-
-extension LegoMinifiguresParts {
-    static func mock() -> LegoMinifiguresParts {
-        LegoMinifiguresParts(count: Int.mock(),
-                        next: URL.mock(),
-                        previous: URL.mock(),
-                        results: [LegoMinifiguresPart.mock()])
-    }
-}
-
-extension LegoMinifiguresPart {
-    static func mock() -> LegoMinifiguresPart {
-        LegoMinifiguresPart(id: Int.mock(),
+extension LegoInventoryPart {
+    static func mock() -> LegoInventoryPart {
+        LegoInventoryPart(id: Int.mock(),
                             inv_part_id: Int.mock(),
                             part: LegoPart.mock(),
                             color: LegoColor.mock(),
@@ -142,5 +122,33 @@ extension LegoPart {
                  part_img_url: URL.mock(),
                  external_ids: [:],
                  print_of: String.mock())
+    }
+}
+
+extension LegoElement {
+    static func mock() -> LegoElement {
+        LegoElement(part: LegoPart.mock(),
+                    color: LegoColor.mock(),
+                    element_id: String.mock(),
+                    design_id: String.mock(),
+                    element_img_url: URL.mock(),
+                    part_img_url: URL.mock())
+    }
+}
+
+extension LegoPartCategories {
+    static func mock() -> LegoPartCategories {
+        LegoPartCategories(count: Int.mock(),
+                           next: URL.mock(),
+                           previous: URL.mock(),
+                           results: [LegoPartCategory.mock()])
+    }
+}
+
+extension LegoPartCategory {
+    static func mock() -> LegoPartCategory {
+        LegoPartCategory(id: Int.mock(),
+                         name: String.mock(),
+                         part_count: Int.mock())
     }
 }
