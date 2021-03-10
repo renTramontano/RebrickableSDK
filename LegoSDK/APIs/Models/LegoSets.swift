@@ -1,12 +1,12 @@
 import Foundation
 
-public struct LegoParts: Codable, Hashable {
+public struct LegoSets: Codable, Hashable {
     public let count: Int
     public let next: URL?
     public let previous: URL?
-    public let results: [LegoPart]
-
-    public init(count: Int, next: URL?, previous: URL?, results: [LegoPart]) {
+    public let results: [LegoSet]
+    
+    public init(count: Int, next: URL?, previous: URL?, results: [LegoSet]) {
         self.count = count
         self.next = next
         self.previous = previous

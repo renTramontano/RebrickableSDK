@@ -42,26 +42,14 @@ extension LegoColor {
     }
 }
 
-extension LegoInventoryParts {
-    static func mock() -> LegoInventoryParts {
-        LegoInventoryParts(count: Int.mock(),
-                        next: URL.mock(),
-                        previous: URL.mock(),
-                        results: [LegoInventoryPart.mock()])
-    }
-}
-
-extension LegoInventoryPart {
-    static func mock() -> LegoInventoryPart {
-        LegoInventoryPart(id: Int.mock(),
-                            inv_part_id: Int.mock(),
-                            part: LegoPart.mock(),
-                            color: LegoColor.mock(),
-                            set_num: String.mock(),
-                            quantity: Int.mock(),
-                            is_spare: Bool.mock(),
-                            element_id: String.mock(),
-                            num_sets: Int.mock())
+extension LegoElement {
+    static func mock() -> LegoElement {
+        LegoElement(part: LegoPart.mock(),
+                    color: LegoColor.mock(),
+                    element_id: String.mock(),
+                    design_id: String.mock(),
+                    element_img_url: URL.mock(),
+                    part_img_url: URL.mock())
     }
 }
 
@@ -87,20 +75,20 @@ extension LegoSet {
     }
 }
 
-extension LegoThemes {
-    static func mock() -> LegoThemes {
-        LegoThemes(count: Int.mock(),
-                   next: URL.mock(),
-                   previous: URL.mock(),
-                   results: [LegoTheme.mock()])
+extension LegoPartCategories {
+    static func mock() -> LegoPartCategories {
+        LegoPartCategories(count: Int.mock(),
+                           next: URL.mock(),
+                           previous: URL.mock(),
+                           results: [LegoPartCategory.mock()])
     }
 }
 
-extension LegoTheme {
-    static func mock() -> LegoTheme {
-        LegoTheme(id: Int.mock(),
-                  parent_id: Int.mock(),
-                  name: String.mock())
+extension LegoPartCategory {
+    static func mock() -> LegoPartCategory {
+        LegoPartCategory(id: Int.mock(),
+                         name: String.mock(),
+                         part_count: Int.mock())
     }
 }
 
@@ -125,30 +113,42 @@ extension LegoPart {
     }
 }
 
-extension LegoElement {
-    static func mock() -> LegoElement {
-        LegoElement(part: LegoPart.mock(),
-                    color: LegoColor.mock(),
-                    element_id: String.mock(),
-                    design_id: String.mock(),
-                    element_img_url: URL.mock(),
-                    part_img_url: URL.mock())
-    }
-}
-
-extension LegoPartCategories {
-    static func mock() -> LegoPartCategories {
-        LegoPartCategories(count: Int.mock(),
+extension LegoInventoryParts {
+    static func mock() -> LegoInventoryParts {
+        LegoInventoryParts(count: Int.mock(),
                            next: URL.mock(),
                            previous: URL.mock(),
-                           results: [LegoPartCategory.mock()])
+                           results: [LegoInventoryPart.mock()])
     }
 }
 
-extension LegoPartCategory {
-    static func mock() -> LegoPartCategory {
-        LegoPartCategory(id: Int.mock(),
-                         name: String.mock(),
-                         part_count: Int.mock())
+extension LegoInventoryPart {
+    static func mock() -> LegoInventoryPart {
+        LegoInventoryPart(id: Int.mock(),
+                          inv_part_id: Int.mock(),
+                          part: LegoPart.mock(),
+                          color: LegoColor.mock(),
+                          set_num: String.mock(),
+                          quantity: Int.mock(),
+                          is_spare: Bool.mock(),
+                          element_id: String.mock(),
+                          num_sets: Int.mock())
+    }
+}
+
+extension LegoThemes {
+    static func mock() -> LegoThemes {
+        LegoThemes(count: Int.mock(),
+                   next: URL.mock(),
+                   previous: URL.mock(),
+                   results: [LegoTheme.mock()])
+    }
+}
+
+extension LegoTheme {
+    static func mock() -> LegoTheme {
+        LegoTheme(id: Int.mock(),
+                  parent_id: Int.mock(),
+                  name: String.mock())
     }
 }

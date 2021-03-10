@@ -48,6 +48,10 @@ public final class LegoAPI {
         get(endpoint: Endpoint.parts.toUrl)
     }
 
+    public func getLegoPart(with id: String) -> AnyPublisher<LegoPart, LegoError> {
+        get(endpoint: Endpoint.part(with: id).toUrl)
+    }
+
     public func getLegoSets() -> AnyPublisher<LegoSets, LegoError> {
         get(endpoint: Endpoint.sets.toUrl)
     }

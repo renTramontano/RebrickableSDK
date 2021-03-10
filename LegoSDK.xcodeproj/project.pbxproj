@@ -142,7 +142,6 @@
 				F9406C9325EC27FC007DBEEC /* LegoError.swift */,
 				F9A91D3425DDB79E00AE87BC /* APIs */,
 				F9A91D6C25DE6ED800AE87BC /* Extension */,
-				F9A91D3B25DDB8F200AE87BC /* Models */,
 			);
 			path = LegoSDK;
 			sourceTree = "<group>";
@@ -152,6 +151,7 @@
 			children = (
 				F9A91D3525DDB7C500AE87BC /* LegoAPI.swift */,
 				F9B7A8F525DFFA63005D8ED5 /* UsersAPI.swift */,
+				F9A91D3B25DDB8F200AE87BC /* Models */,
 			);
 			path = APIs;
 			sourceTree = "<group>";

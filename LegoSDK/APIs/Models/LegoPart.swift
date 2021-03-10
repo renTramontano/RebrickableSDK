@@ -8,7 +8,7 @@ public struct LegoPart: Codable, Hashable {
     public let part_img_url: URL?
     public let external_ids: [String: [String]]
     public let print_of: String?
-
+    
     public init(part_num: String, name: String, part_cat_id: Int, part_url: URL, part_img_url: URL?, external_ids: [String: [String]], print_of: String?) {
         self.part_num = part_num
         self.name = name

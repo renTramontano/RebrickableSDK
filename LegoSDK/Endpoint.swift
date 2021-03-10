@@ -19,7 +19,7 @@ struct Endpoint {
     static func color(with id: Int) -> String {
         colors + "\(id)/"
     }
-
+    
     static func elements(with id: String) -> String {
         elements + "\(id)/"
     }
@@ -38,6 +38,10 @@ struct Endpoint {
 
     static func partCategory(with id: Int) -> String {
         partCategories + "\(id)/"
+    }
+
+    static func part(with partNum: String) -> String {
+        parts + "\(partNum)/"
     }
 
     static func theme(with id: Int) -> String {

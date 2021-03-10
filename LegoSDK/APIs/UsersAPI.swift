@@ -5,7 +5,7 @@ public final class UsersAPI {
     private var apiManger: APIManager
     private var userToken: String?
     private var bag = Set<AnyCancellable>()
-
+    
     public init(apiKey: String) {
         apiManger = APIManager(apiKey: apiKey)
     }
