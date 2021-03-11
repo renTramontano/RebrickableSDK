@@ -9,115 +9,115 @@ class LegoAPITests: UnitTestCase {
 
     func testGetLegoColors() throws {
         try getTest(mock: PageResponse.mock(result: LegoColor.mock()),
-                    endpoint: "/colors",
+                    endpoint: Endpoint.colors,
                     publisher: legoApi.getLegoColors())
     }
 
-    func testGetLegoColor() throws {
+    func testGetLegoColorWithId() throws {
         try getTest(mock: LegoColor.mock(),
-                    endpoint: "/colors",
+                    endpoint: Endpoint.colors,
                     publisher: legoApi.getLegoColor(with: 1))
     }
 
     func testGetLegoElement() throws {
         try getTest(mock: LegoElement.mock(),
-                    endpoint: "/elements",
+                    endpoint: Endpoint.elements,
                     publisher: legoApi.getLegoElement(with: "6099483"))
     }
 
     func testGetLegoMinifigures() throws {
         try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
-                    endpoint: "/minifigs",
+                    endpoint: Endpoint.minifigs,
                     publisher: legoApi.getLegoMinifigures())
     }
 
     func testGetLegoMinifigureWithSetNum() throws {
         try getTest(mock: LegoSet.mock(),
-                    endpoint: "/minifigs",
+                    endpoint: Endpoint.minifigs,
                     publisher: legoApi.getLegoMinifigureDetails(with: "fig-000001"))
     }
 
     func testGetLegoMinifigureParts() throws {
         try getTest(mock: PageResponse.mock(result: LegoInventoryPart.mock()),
-                    endpoint: "/parts",
+                    endpoint: Endpoint.parts,
                     publisher: legoApi.getLegoMinifigureParts(with: "fig-000001"))
     }
 
     func testGetLegoMinifigureSets() throws {
         try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
-                    endpoint: "/sets",
+                    endpoint: Endpoint.sets,
                     publisher: legoApi.getLegoSets(with: "fig-000001"))
     }
 
     func testGetLegoPartCategories() throws {
         try getTest(mock: PageResponse.mock(result: LegoPartCategory.mock()),
-                    endpoint: "/elements",
+                    endpoint: Endpoint.elements,
                     publisher: legoApi.getLegoPartCategories())
     }
 
     func testGetLegoPartCategoriesWithId() throws {
         try getTest(mock: LegoPartCategory.mock(),
-                    endpoint: "/elements",
+                    endpoint: Endpoint.elements,
                     publisher: legoApi.getLegoPartCategory(with: 49))
     }
 
     func testGetLegoParts() throws {
         try getTest(mock: PageResponse.mock(result: LegoPart.mock()),
-                    endpoint: "/parts",
+                    endpoint: Endpoint.parts,
                     publisher: legoApi.getLegoParts())
     }
 
     func testGetLegoPartWithId() throws {
         try getTest(mock: LegoPart.mock(),
-                    endpoint: "/parts",
+                    endpoint: Endpoint.parts,
                     publisher: legoApi.getLegoPart(with: "39381"))
     }
 
     func testGetLegoPartColorsWithPartNum() throws {
         try getTest(mock: PageResponse.mock(result: LegoPartColor.mock()),
-                    endpoint: "/colors",
+                    endpoint: Endpoint.colors,
                     publisher: legoApi.getPartColors(with: "003381"))
     }
 
     func testGetLegoPartsWitPartAndColor() throws {
         try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
-                    endpoint: "/sets",
+                    endpoint: Endpoint.sets,
                     publisher: legoApi.getSets(partNum: "003381", colorID: "9999"))
     }
 
     func testGetLegoSets() throws {
         try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
-                    endpoint: "/sets",
+                    endpoint: Endpoint.sets,
                     publisher: legoApi.getLegoSets())
     }
 
     func testGetLegoSet() throws {
         try getTest(mock: LegoSet.mock(),
-                    endpoint: "/sets",
+                    endpoint: Endpoint.sets,
                     publisher: legoApi.getLegoSet(with: "0011-2"))
     }
 
     func testGetLegoInventoryMinifigsWithSetNum() throws {
         try getTest(mock: PageResponse.mock(result: LegoInventorySet.mock()),
-                    endpoint: "/minifigs",
+                    endpoint: Endpoint.minifigs,
                     publisher: legoApi.getLegoInventoryMinifigs(with: "0011-2"))
     }
 
     func testGetLegoInventoryPartsWithSetNum() throws {
         try getTest(mock: PageResponse.mock(result: LegoInventoryPart.mock()),
-                    endpoint: "/parts",
+                    endpoint: Endpoint.parts,
                     publisher: legoApi.getLegoInventoryParts(with: "76139-1"))
     }
 
     func testGetLegoThemes() throws {
         try getTest(mock: PageResponse.mock(result: LegoTheme.mock()),
-                    endpoint: "/themes",
+                    endpoint: Endpoint.themes,
                     publisher: legoApi.getLegoThemes())
     }
 
     func testGetLegoThemeWithId() throws {
         try getTest(mock: LegoTheme.mock(),
-                    endpoint: "/themes",
+                    endpoint: Endpoint.themes,
                     publisher: legoApi.getLegoTheme(with: 1))
     }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F9068E1125DEFE5700C3187A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9068E1025DEFE5700C3187A /* Endpoint.swift */; };
-		F9068E1A25DF010D00C3187A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9068E1925DF010D00C3187A /* String+.swift */; };
 		F9182A8425E7A8DE00876396 /* LegoPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9182A8325E7A8DE00876396 /* LegoPart.swift */; };
 		F91DEC5E25FA350F00BB91F7 /* LegoPartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91DEC5D25FA350F00BB91F7 /* LegoPartColor.swift */; };
 		F91DEC6925FA506200BB91F7 /* LegoInventorySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91DEC6825FA506200BB91F7 /* LegoInventorySet.swift */; };
@@ -61,7 +60,6 @@
 
 /* Begin PBXFileReference section */
 		F9068E1025DEFE5700C3187A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		F9068E1925DF010D00C3187A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		F9182A8325E7A8DE00876396 /* LegoPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoPart.swift; sourceTree = "<group>"; };
 		F91DEC5D25FA350F00BB91F7 /* LegoPartColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoPartColor.swift; sourceTree = "<group>"; };
 		F91DEC6825FA506200BB91F7 /* LegoInventorySet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoInventorySet.swift; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 		F9A91D6C25DE6ED800AE87BC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F9068E1925DF010D00C3187A /* String+.swift */,
 				F9DE742525FAB1E600201B1D /* URL+.swift */,
 			);
 			path = Extension;
@@ -329,7 +326,6 @@
 				F9A91D3D25DDB91900AE87BC /* LegoSet.swift in Sources */,
 				F9DE742625FAB1E600201B1D /* URL+.swift in Sources */,
 				F91DEC6D25FA546700BB91F7 /* PageResponse.swift in Sources */,
-				F9068E1A25DF010D00C3187A /* String+.swift in Sources */,
 				F9A91D3925DDB80E00AE87BC /* APIManager.swift in Sources */,
 				F9A91D3625DDB7C500AE87BC /* LegoAPI.swift in Sources */,
 				F91DEC5E25FA350F00BB91F7 /* LegoPartColor.swift in Sources */,
