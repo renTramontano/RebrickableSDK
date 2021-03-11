@@ -25,21 +25,12 @@ extension String {
     }
 }
 
-extension ResponseBody {
-    static func mock(result: T) -> ResponseBody {
-        ResponseBody(count: Int.mock(),
+extension PageResponse where T: Codable & Hashable {
+    static func mock(result: T) -> PageResponse {
+        PageResponse(count: Int.mock(),
                      next: URL.mock(),
                      previous: URL.mock(),
                      results: [result])
-    }
-}
-
-extension LegoColors {
-    static func mock() -> LegoColors {
-        LegoColors(count: Int.mock(),
-                   next: URL.mock(),
-                   previus: URL.mock(),
-                   results: [LegoColor.mock()])
     }
 }
 
@@ -62,15 +53,6 @@ extension LegoElement {
     }
 }
 
-extension LegoSets {
-    static func mock() -> LegoSets {
-        LegoSets(count: Int.mock(),
-                 next: URL.mock(),
-                 previous: URL.mock(),
-                 results: [LegoSet.mock()])
-    }
-}
-
 extension LegoSet {
     static func mock() -> LegoSet {
         LegoSet(set_num: String.mock(),
@@ -84,29 +66,11 @@ extension LegoSet {
     }
 }
 
-extension LegoPartCategories {
-    static func mock() -> LegoPartCategories {
-        LegoPartCategories(count: Int.mock(),
-                           next: URL.mock(),
-                           previous: URL.mock(),
-                           results: [LegoPartCategory.mock()])
-    }
-}
-
 extension LegoPartCategory {
     static func mock() -> LegoPartCategory {
         LegoPartCategory(id: Int.mock(),
                          name: String.mock(),
                          part_count: Int.mock())
-    }
-}
-
-extension LegoParts {
-    static func mock() -> LegoParts {
-        LegoParts(count: Int.mock(),
-                  next: URL.mock(),
-                  previous: URL.mock(),
-                  results: [LegoPart.mock()])
     }
 }
 
@@ -122,15 +86,6 @@ extension LegoPart {
     }
 }
 
-extension LegoPartColors {
-    static func mock() -> LegoPartColors {
-        LegoPartColors(count: Int.mock(),
-                  next: URL.mock(),
-                  previous: URL.mock(),
-                  results: [LegoPartColor.mock()])
-    }
-}
-
 extension LegoPartColor {
     static func mock() -> LegoPartColor {
         LegoPartColor(color_id: Int.mock(),
@@ -138,15 +93,6 @@ extension LegoPartColor {
                       num_sets: Int.mock(),
                       num_set_parts: Int.mock(),
                       part_img_url: URL.mock())
-    }
-}
-
-extension LegoInventoryParts {
-    static func mock() -> LegoInventoryParts {
-        LegoInventoryParts(count: Int.mock(),
-                           next: URL.mock(),
-                           previous: URL.mock(),
-                           results: [LegoInventoryPart.mock()])
     }
 }
 
@@ -164,31 +110,13 @@ extension LegoInventoryPart {
     }
 }
 
-extension LegoInventorySets {
-    static func mock() -> LegoInventorySets {
-        LegoInventorySets(count: Int.mock(),
-                          next: URL.mock(),
-                          previous: URL.mock(),
-                          results: [LegoInventorySet.mock()])
-    }
-}
-
 extension LegoInventorySet {
     static func mock() -> LegoInventorySet {
-        LegoInventorySet(id: String.mock(),
+        LegoInventorySet(id: Int.mock(),
                          set_num: String.mock(),
                          set_name: String.mock(),
                          quantity: Int.mock(),
                          set_img_url: URL.mock())
-    }
-}
-
-extension LegoThemes {
-    static func mock() -> LegoThemes {
-        LegoThemes(count: Int.mock(),
-                   next: URL.mock(),
-                   previous: URL.mock(),
-                   results: [LegoTheme.mock()])
     }
 }
 

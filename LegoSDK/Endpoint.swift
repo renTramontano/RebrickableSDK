@@ -57,11 +57,11 @@ struct Endpoint {
     }
 
     static func inventoryMinifigs(with setNum: String) -> String {
-        set(setNum: setNum) + "/minifigs/"
+        set(setNum: setNum) + "minifigs/"
     }
 
     static func inventoryParts(with setNum: String) -> String {
-        set(setNum: setNum) + "/parts/"
+        set(setNum: setNum) + "parts/"
     }
 
     static func theme(with id: Int) -> String {

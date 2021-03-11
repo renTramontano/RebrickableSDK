@@ -8,7 +8,7 @@ class LegoAPITests: UnitTestCase {
     private var bag = Set<AnyCancellable>()
 
     func testGetLegoColors() throws {
-        try getTest(mock: LegoColors.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoColor.mock()),
                     endpoint: "/colors",
                     publisher: legoApi.getLegoColors())
     }
@@ -26,7 +26,7 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoMinifigures() throws {
-        try getTest(mock: LegoSets.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
                     endpoint: "/minifigs",
                     publisher: legoApi.getLegoMinifigures())
     }
@@ -38,19 +38,19 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoMinifigureParts() throws {
-        try getTest(mock: LegoInventoryParts.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoInventoryPart.mock()),
                     endpoint: "/parts",
                     publisher: legoApi.getLegoMinifigureParts(with: "fig-000001"))
     }
 
     func testGetLegoMinifigureSets() throws {
-        try getTest(mock: LegoSets.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
                     endpoint: "/sets",
                     publisher: legoApi.getLegoSets(with: "fig-000001"))
     }
 
     func testGetLegoPartCategories() throws {
-        try getTest(mock: LegoPartCategories.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoPartCategory.mock()),
                     endpoint: "/elements",
                     publisher: legoApi.getLegoPartCategories())
     }
@@ -62,7 +62,7 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoParts() throws {
-        try getTest(mock: LegoParts.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoPart.mock()),
                     endpoint: "/parts",
                     publisher: legoApi.getLegoParts())
     }
@@ -74,19 +74,19 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoPartColorsWithPartNum() throws {
-        try getTest(mock: LegoPartColors.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoPartColor.mock()),
                     endpoint: "/colors",
                     publisher: legoApi.getPartColors(with: "003381"))
     }
 
     func testGetLegoPartsWitPartAndColor() throws {
-        try getTest(mock: LegoSets.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
                     endpoint: "/sets",
                     publisher: legoApi.getSets(partNum: "003381", colorID: "9999"))
     }
 
     func testGetLegoSets() throws {
-        try getTest(mock: LegoSets.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
                     endpoint: "/sets",
                     publisher: legoApi.getLegoSets())
     }
@@ -98,19 +98,19 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoInventoryMinifigsWithSetNum() throws {
-        try getTest(mock: LegoInventorySets.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoInventorySet.mock()),
                     endpoint: "/minifigs",
                     publisher: legoApi.getLegoInventoryMinifigs(with: "0011-2"))
     }
 
     func testGetLegoInventoryPartsWithSetNum() throws {
-        try getTest(mock: LegoInventoryParts.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoInventoryPart.mock()),
                     endpoint: "/parts",
                     publisher: legoApi.getLegoInventoryParts(with: "76139-1"))
     }
 
     func testGetLegoThemes() throws {
-        try getTest(mock: LegoThemes.mock(),
+        try getTest(mock: PageResponse.mock(result: LegoTheme.mock()),
                     endpoint: "/themes",
                     publisher: legoApi.getLegoThemes())
     }
@@ -131,7 +131,7 @@ extension LegoAPITests {
             .route(endpoint, { (request, callCount) -> (HttpResponse) in
                 XCTAssertEqual(request.method, APIManager.HttpMethod.get.rawValue)
                 XCTAssertEqual(callCount, 1)
-                return HttpResponse.encode(value: LegoParts.mock())
+                return HttpResponse.encode(value: mock)
             })
             .buildAndStart()
 
