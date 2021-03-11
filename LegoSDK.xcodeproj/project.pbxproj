@@ -11,6 +11,11 @@
 		F9068E1A25DF010D00C3187A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9068E1925DF010D00C3187A /* String+.swift */; };
 		F9182A8125E7A87D00876396 /* LegoParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9182A8025E7A87D00876396 /* LegoParts.swift */; };
 		F9182A8425E7A8DE00876396 /* LegoPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9182A8325E7A8DE00876396 /* LegoPart.swift */; };
+		F91DEC5B25FA34F000BB91F7 /* LegoPartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91DEC5A25FA34F000BB91F7 /* LegoPartColors.swift */; };
+		F91DEC5E25FA350F00BB91F7 /* LegoPartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91DEC5D25FA350F00BB91F7 /* LegoPartColor.swift */; };
+		F91DEC6625FA504D00BB91F7 /* LegoInventorySets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91DEC6525FA504D00BB91F7 /* LegoInventorySets.swift */; };
+		F91DEC6925FA506200BB91F7 /* LegoInventorySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91DEC6825FA506200BB91F7 /* LegoInventorySet.swift */; };
+		F91DEC6D25FA546700BB91F7 /* ResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91DEC6C25FA546700BB91F7 /* ResponseBody.swift */; };
 		F9406C8525EA58EA007DBEEC /* LegoInventoryPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9406C8425EA58EA007DBEEC /* LegoInventoryPart.swift */; };
 		F9406C8925EA5A66007DBEEC /* LegoInventoryParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9406C8825EA5A66007DBEEC /* LegoInventoryParts.swift */; };
 		F9406C9425EC27FC007DBEEC /* LegoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9406C9325EC27FC007DBEEC /* LegoError.swift */; };
@@ -66,6 +71,11 @@
 		F9068E1925DF010D00C3187A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		F9182A8025E7A87D00876396 /* LegoParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoParts.swift; sourceTree = "<group>"; };
 		F9182A8325E7A8DE00876396 /* LegoPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoPart.swift; sourceTree = "<group>"; };
+		F91DEC5A25FA34F000BB91F7 /* LegoPartColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoPartColors.swift; sourceTree = "<group>"; };
+		F91DEC5D25FA350F00BB91F7 /* LegoPartColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoPartColor.swift; sourceTree = "<group>"; };
+		F91DEC6525FA504D00BB91F7 /* LegoInventorySets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoInventorySets.swift; sourceTree = "<group>"; };
+		F91DEC6825FA506200BB91F7 /* LegoInventorySet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoInventorySet.swift; sourceTree = "<group>"; };
+		F91DEC6C25FA546700BB91F7 /* ResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseBody.swift; sourceTree = "<group>"; };
 		F9406C8425EA58EA007DBEEC /* LegoInventoryPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoInventoryPart.swift; sourceTree = "<group>"; };
 		F9406C8825EA5A66007DBEEC /* LegoInventoryParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoInventoryParts.swift; sourceTree = "<group>"; };
 		F9406C9325EC27FC007DBEEC /* LegoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoError.swift; sourceTree = "<group>"; };
@@ -164,14 +174,19 @@
 				F9E0F9FE25F93923002E4D92 /* LegoElement.swift */,
 				F9406C8425EA58EA007DBEEC /* LegoInventoryPart.swift */,
 				F9406C8825EA5A66007DBEEC /* LegoInventoryParts.swift */,
+				F91DEC6825FA506200BB91F7 /* LegoInventorySet.swift */,
+				F91DEC6525FA504D00BB91F7 /* LegoInventorySets.swift */,
 				F9182A8325E7A8DE00876396 /* LegoPart.swift */,
 				F9E0FA0225F940C6002E4D92 /* LegoPartCategories.swift */,
 				F9E0FA0625F940FD002E4D92 /* LegoPartCategory.swift */,
+				F91DEC5D25FA350F00BB91F7 /* LegoPartColor.swift */,
+				F91DEC5A25FA34F000BB91F7 /* LegoPartColors.swift */,
 				F9182A8025E7A87D00876396 /* LegoParts.swift */,
 				F9A91D3C25DDB91900AE87BC /* LegoSet.swift */,
 				F9A91D6425DE6C9900AE87BC /* LegoSets.swift */,
 				F9B80FEF25E6F5E4003DD7F5 /* LegoTheme.swift */,
 				F9B80FEC25E6F586003DD7F5 /* LegoThemes.swift */,
+				F91DEC6C25FA546700BB91F7 /* ResponseBody.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,8 +340,11 @@
 			files = (
 				F9406C8525EA58EA007DBEEC /* LegoInventoryPart.swift in Sources */,
 				F9406C9425EC27FC007DBEEC /* LegoError.swift in Sources */,
+				F91DEC6625FA504D00BB91F7 /* LegoInventorySets.swift in Sources */,
 				F9E0F9FF25F93923002E4D92 /* LegoElement.swift in Sources */,
 				F9182A8425E7A8DE00876396 /* LegoPart.swift in Sources */,
+				F91DEC5B25FA34F000BB91F7 /* LegoPartColors.swift in Sources */,
+				F91DEC6925FA506200BB91F7 /* LegoInventorySet.swift in Sources */,
 				F9182A8125E7A87D00876396 /* LegoParts.swift in Sources */,
 				F9A97F8425DEE06000196737 /* LegoColors.swift in Sources */,
 				F9B80FF025E6F5E4003DD7F5 /* LegoTheme.swift in Sources */,
@@ -338,9 +356,11 @@
 				F9A91D6525DE6C9900AE87BC /* LegoSets.swift in Sources */,
 				F9A91D3D25DDB91900AE87BC /* LegoSet.swift in Sources */,
 				F9406C8925EA5A66007DBEEC /* LegoInventoryParts.swift in Sources */,
+				F91DEC6D25FA546700BB91F7 /* ResponseBody.swift in Sources */,
 				F9068E1A25DF010D00C3187A /* String+.swift in Sources */,
 				F9A91D3925DDB80E00AE87BC /* APIManager.swift in Sources */,
 				F9A91D3625DDB7C500AE87BC /* LegoAPI.swift in Sources */,
+				F91DEC5E25FA350F00BB91F7 /* LegoPartColor.swift in Sources */,
 				F9A97F8725DEE11200196737 /* LegoColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

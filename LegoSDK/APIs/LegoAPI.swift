@@ -52,8 +52,28 @@ public final class LegoAPI {
         get(endpoint: Endpoint.part(with: id).toUrl)
     }
 
+    public func getPartColors(with partNum: String) -> AnyPublisher<LegoPartColors, LegoError> {
+        get(endpoint: Endpoint.partColors(partNum: partNum).toUrl)
+    }
+
+    public func getSets(partNum: String, colorID: String) -> AnyPublisher<LegoSets, LegoError> {
+        get(endpoint: Endpoint.set(partNum: partNum, colorId: colorID).toUrl)
+    }
+
     public func getLegoSets() -> AnyPublisher<LegoSets, LegoError> {
         get(endpoint: Endpoint.sets.toUrl)
+    }
+
+    public func getLegoSet(with setNum: String) -> AnyPublisher<LegoSet, LegoError> {
+        get(endpoint: Endpoint.set(setNum: setNum).toUrl)
+    }
+
+    public func getLegoInventoryMinifigs(with setNum: String) -> AnyPublisher<LegoInventorySets, LegoError> {
+        get(endpoint: Endpoint.inventoryMinifigs(with: setNum).toUrl)
+    }
+
+    public func getLegoInventoryParts(with setNum: String) -> AnyPublisher<LegoInventoryParts, LegoError> {
+        get(endpoint: Endpoint.inventoryParts(with: setNum).toUrl)
     }
 
     public func getLegoThemes() -> AnyPublisher<LegoThemes, LegoError> {

@@ -44,6 +44,26 @@ struct Endpoint {
         parts + "\(partNum)/"
     }
 
+    static func partColors(partNum: String) -> String {
+        parts + "\(partNum)" + "/colors/"
+    }
+
+    static func set(partNum: String, colorId: String) -> String {
+        partColors(partNum: partNum) + "\(colorId)" + "/sets/"
+    }
+
+    static func set(setNum: String) -> String {
+        sets + "\(setNum)/"
+    }
+
+    static func inventoryMinifigs(with setNum: String) -> String {
+        set(setNum: setNum) + "/minifigs/"
+    }
+
+    static func inventoryParts(with setNum: String) -> String {
+        set(setNum: setNum) + "/parts/"
+    }
+
     static func theme(with id: Int) -> String {
         themes + "\(id)/"
     }
