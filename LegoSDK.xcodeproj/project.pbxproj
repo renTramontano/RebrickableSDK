@@ -30,6 +30,7 @@
 		F9A97F8725DEE11200196737 /* LegoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A97F8625DEE11200196737 /* LegoColor.swift */; };
 		F9B7A8F625DFFA63005D8ED5 /* UsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7A8F525DFFA63005D8ED5 /* UsersAPI.swift */; };
 		F9B80FF025E6F5E4003DD7F5 /* LegoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B80FEF25E6F5E4003DD7F5 /* LegoTheme.swift */; };
+		F9DE742625FAB1E600201B1D /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE742525FAB1E600201B1D /* URL+.swift */; };
 		F9E0F9FF25F93923002E4D92 /* LegoElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E0F9FE25F93923002E4D92 /* LegoElement.swift */; };
 		F9E0FA0725F940FD002E4D92 /* LegoPartCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E0FA0625F940FD002E4D92 /* LegoPartCategory.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		F9A97F8625DEE11200196737 /* LegoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoColor.swift; sourceTree = "<group>"; };
 		F9B7A8F525DFFA63005D8ED5 /* UsersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAPI.swift; sourceTree = "<group>"; };
 		F9B80FEF25E6F5E4003DD7F5 /* LegoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoTheme.swift; sourceTree = "<group>"; };
+		F9DE742525FAB1E600201B1D /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		F9E0F9FE25F93923002E4D92 /* LegoElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoElement.swift; sourceTree = "<group>"; };
 		F9E0FA0625F940FD002E4D92 /* LegoPartCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoPartCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				F9068E1925DF010D00C3187A /* String+.swift */,
+				F9DE742525FAB1E600201B1D /* URL+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				F9B7A8F625DFFA63005D8ED5 /* UsersAPI.swift in Sources */,
 				F9068E1125DEFE5700C3187A /* Endpoint.swift in Sources */,
 				F9A91D3D25DDB91900AE87BC /* LegoSet.swift in Sources */,
+				F9DE742625FAB1E600201B1D /* URL+.swift in Sources */,
 				F91DEC6D25FA546700BB91F7 /* PageResponse.swift in Sources */,
 				F9068E1A25DF010D00C3187A /* String+.swift in Sources */,
 				F9A91D3925DDB80E00AE87BC /* APIManager.swift in Sources */,

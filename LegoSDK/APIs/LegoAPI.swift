@@ -8,8 +8,8 @@ public final class LegoAPI {
         apiManger = APIManager(apiKey: apiKey)
     }
 
-    public func getLegoColors() -> AnyPublisher<PageResponse<LegoColor>, LegoError> {
-        get(endpoint: Endpoint.colors.toUrl)
+    public func getLegoColors(page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoColor>, LegoError> {
+        get(endpoint: Endpoint.colors.toUrl.appending(page: page, pageSize: pageSize))
     }
 
     public func getLegoColor(with id: Int) -> AnyPublisher<LegoColor, LegoError> {
@@ -20,24 +20,24 @@ public final class LegoAPI {
         get(endpoint: Endpoint.elements(with: id).toUrl)
     }
 
-    public func getLegoMinifigures() -> AnyPublisher<PageResponse<LegoSet>, LegoError> {
-        get(endpoint: Endpoint.minifigs.toUrl)
+    public func getLegoMinifigures(page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoSet>, LegoError> {
+        get(endpoint: Endpoint.minifigs.toUrl.appending(page: page, pageSize: pageSize))
     }
 
-    public func getLegoMinifigureDetails(with figNum: String) -> AnyPublisher<LegoSet, LegoError> {
-        get(endpoint: Endpoint.minifig(with: figNum).toUrl)
+    public func getLegoMinifigureDetails(with figNum: String, page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<LegoSet, LegoError> {
+        get(endpoint: Endpoint.minifig(with: figNum).toUrl.appending(page: page, pageSize: pageSize))
     }
 
-    public func getLegoMinifigureParts(with figNum: String) -> AnyPublisher<PageResponse<LegoInventoryPart>, LegoError> {
-        get(endpoint: Endpoint.minifigParts(with: figNum).toUrl)
+    public func getLegoMinifigureParts(with figNum: String, page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoInventoryPart>, LegoError> {
+        get(endpoint: Endpoint.minifigParts(with: figNum).toUrl.appending(page: page, pageSize: pageSize))
     }
 
-    public func getLegoSets(with figNum: String) -> AnyPublisher<PageResponse<LegoSet>, LegoError> {
-        get(endpoint: Endpoint.minifigSets(with: figNum).toUrl)
+    public func getLegoSets(with figNum: String, page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoSet>, LegoError> {
+        get(endpoint: Endpoint.minifigSets(with: figNum).toUrl.appending(page: page, pageSize: pageSize))
     }
 
-    public func getLegoPartCategories() -> AnyPublisher<PageResponse<LegoPartCategory>, LegoError> {
-        get(endpoint: Endpoint.partCategories.toUrl)
+    public func getLegoPartCategories(page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoPartCategory>, LegoError> {
+        get(endpoint: Endpoint.partCategories.toUrl.appending(page: page, pageSize: pageSize))
     }
 
     public func getLegoPartCategory(with id: Int) -> AnyPublisher<LegoPartCategory, LegoError> {
@@ -52,12 +52,12 @@ public final class LegoAPI {
         get(endpoint: Endpoint.part(with: id).toUrl)
     }
 
-    public func getPartColors(with partNum: String) -> AnyPublisher<PageResponse<LegoPartColor>, LegoError> {
-        get(endpoint: Endpoint.partColors(partNum: partNum).toUrl)
+    public func getPartColors(with partNum: String, page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoPartColor>, LegoError> {
+        get(endpoint: Endpoint.partColors(partNum: partNum).toUrl.appending(page: page, pageSize: pageSize))
     }
 
-    public func getSets(partNum: String, colorID: String) -> AnyPublisher<PageResponse<LegoSet>, LegoError> {
-        get(endpoint: Endpoint.set(partNum: partNum, colorId: colorID).toUrl)
+    public func getSets(partNum: String, colorID: String, page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoSet>, LegoError> {
+        get(endpoint: Endpoint.set(partNum: partNum, colorId: colorID).toUrl.appending(page: page, pageSize: pageSize))
     }
 
     public func getLegoSets() -> AnyPublisher<PageResponse<LegoSet>, LegoError> {
@@ -68,16 +68,16 @@ public final class LegoAPI {
         get(endpoint: Endpoint.set(setNum: setNum).toUrl)
     }
 
-    public func getLegoInventoryMinifigs(with setNum: String) -> AnyPublisher<PageResponse<LegoInventorySet>, LegoError> {
-        get(endpoint: Endpoint.inventoryMinifigs(with: setNum).toUrl)
+    public func getLegoInventoryMinifigs(with setNum: String, page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoInventorySet>, LegoError> {
+        get(endpoint: Endpoint.inventoryMinifigs(with: setNum).toUrl.appending(page: page, pageSize: pageSize))
     }
 
-    public func getLegoInventoryParts(with setNum: String) -> AnyPublisher<PageResponse<LegoInventoryPart>, LegoError> {
-        get(endpoint: Endpoint.inventoryParts(with: setNum).toUrl)
+    public func getLegoInventoryParts(with setNum: String, page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoInventoryPart>, LegoError> {
+        get(endpoint: Endpoint.inventoryParts(with: setNum).toUrl.appending(page: page, pageSize: pageSize))
     }
 
-    public func getLegoThemes() -> AnyPublisher<PageResponse<LegoTheme>, LegoError> {
-        get(endpoint: Endpoint.themes.toUrl)
+    public func getLegoThemes(page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<PageResponse<LegoTheme>, LegoError> {
+        get(endpoint: Endpoint.themes.toUrl.appending(page: page, pageSize: pageSize))
     }
 
     public func getLegoTheme(with id: Int) -> AnyPublisher<LegoTheme, LegoError> {
@@ -92,5 +92,12 @@ extension LegoAPI {
             .decode(type: T.self, decoder: JSONDecoder())
             .mapToLegoError()
             .eraseToAnyPublisher()
+    }
+}
+
+fileprivate extension URL {
+    func appending(page: Int?, pageSize: Int?) -> URL {
+        self.appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
     }
 }
