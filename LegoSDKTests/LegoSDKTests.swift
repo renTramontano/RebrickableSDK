@@ -8,7 +8,7 @@ class LegoAPITests: UnitTestCase {
     private var bag = Set<AnyCancellable>()
 
     func testGetLegoColors() throws {
-        try getTest(mock: PageResponse.mock(result: LegoColor.mock()),
+        try getTest(mock: [LegoColor.mock()],
                     endpoint: Endpoint.colors,
                     publisher: legoApi.getLegoColors())
     }
@@ -26,7 +26,7 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoMinifigures() throws {
-        try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
+        try getTest(mock: [LegoSet.mock()],
                     endpoint: Endpoint.minifigs,
                     publisher: legoApi.getLegoMinifigures())
     }
@@ -38,19 +38,19 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoMinifigureParts() throws {
-        try getTest(mock: PageResponse.mock(result: LegoInventoryPart.mock()),
+        try getTest(mock: [LegoInventoryPart.mock()],
                     endpoint: Endpoint.parts,
                     publisher: legoApi.getLegoMinifigureParts(figNum: "fig-000001"))
     }
 
     func testGetLegoMinifigureSets() throws {
-        try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
+        try getTest(mock: [LegoSet.mock()],
                     endpoint: Endpoint.sets,
                     publisher: legoApi.getLegoSets(figNum: "fig-000001"))
     }
 
     func testGetLegoPartCategories() throws {
-        try getTest(mock: PageResponse.mock(result: LegoPartCategory.mock()),
+        try getTest(mock: [LegoPartCategory.mock()],
                     endpoint: Endpoint.elements,
                     publisher: legoApi.getLegoPartCategories())
     }
@@ -62,7 +62,7 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoParts() throws {
-        try getTest(mock: PageResponse.mock(result: LegoPart.mock()),
+        try getTest(mock: [LegoPart.mock()],
                     endpoint: Endpoint.parts,
                     publisher: legoApi.getLegoParts())
     }
@@ -74,19 +74,19 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoPartColorsWithPartNum() throws {
-        try getTest(mock: PageResponse.mock(result: LegoPartColor.mock()),
+        try getTest(mock: [LegoPartColor.mock()],
                     endpoint: Endpoint.colors,
                     publisher: legoApi.getPartColors(partNum: "003381"))
     }
 
     func testGetLegoPartsWitPartAndColor() throws {
-        try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
+        try getTest(mock: [LegoSet.mock()],
                     endpoint: Endpoint.sets,
                     publisher: legoApi.getSets(partNum: "003381", colorID: "9999"))
     }
 
     func testGetLegoSets() throws {
-        try getTest(mock: PageResponse.mock(result: LegoSet.mock()),
+        try getTest(mock: [LegoSet.mock()],
                     endpoint: Endpoint.sets,
                     publisher: legoApi.getLegoSets())
     }
@@ -98,19 +98,19 @@ class LegoAPITests: UnitTestCase {
     }
 
     func testGetLegoInventoryMinifigsWithSetNum() throws {
-        try getTest(mock: PageResponse.mock(result: LegoInventorySet.mock()),
+        try getTest(mock: [LegoInventorySet.mock()],
                     endpoint: Endpoint.minifigs,
                     publisher: legoApi.getLegoInventoryMinifigs(setNum: "0011-2"))
     }
 
     func testGetLegoInventoryPartsWithSetNum() throws {
-        try getTest(mock: PageResponse.mock(result: LegoInventoryPart.mock()),
+        try getTest(mock: [LegoInventoryPart.mock()],
                     endpoint: Endpoint.parts,
                     publisher: legoApi.getLegoInventoryParts(setNum: "76139-1"))
     }
 
     func testGetLegoThemes() throws {
-        try getTest(mock: PageResponse.mock(result: LegoTheme.mock()),
+        try getTest(mock: [LegoTheme.mock()],
                     endpoint: Endpoint.themes,
                     publisher: legoApi.getLegoThemes())
     }

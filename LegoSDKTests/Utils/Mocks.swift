@@ -25,15 +25,6 @@ extension String {
     }
 }
 
-extension PageResponse where T: Codable & Hashable {
-    static func mock(result: T) -> PageResponse {
-        PageResponse(count: Int.mock(),
-                     next: URL.mock(),
-                     previous: URL.mock(),
-                     results: [result])
-    }
-}
-
 extension LegoColor {
     static func mock() -> LegoColor {
         LegoColor(id: Int.mock(),

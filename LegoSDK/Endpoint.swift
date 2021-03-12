@@ -46,11 +46,8 @@ struct Endpoint {
             .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
-    static func minifig(figNum: String, page: Int?, pageSize: Int?) -> URL {
-        minifigsUrl
-            .appendingPath("\(figNum)")
-            .appendingQueryItem(name: "page", value: page)
-            .appendingQueryItem(name: "page_size", value: pageSize)
+    static func minifig(with figNum: String) -> URL {
+        minifigsUrl.appendingPath("\(figNum)")
     }
 
     static func minifigParts(figNum: String, page: Int?, pageSize: Int?) -> URL {
@@ -100,6 +97,7 @@ struct Endpoint {
     static func set(partNum: String, colorId: String, page: Int?, pageSize: Int?) -> URL {
         partsUrl
             .appendingPath("\(partNum)")
+            .appendingPath(colors)
             .appendingPath("\(colorId)")
             .appendingPath(sets)
             .appendingQueryItem(name: "page", value: page)
