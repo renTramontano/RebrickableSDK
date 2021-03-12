@@ -1,11 +1,11 @@
 import Foundation
 
 struct Endpoint {
-    private static let scheme = "https://"
-    private static let rebrickableHostName = "rebrickable.com"
-    private static let apiLegoV3 = "/api/v3/lego"
-    private static let base = scheme + rebrickableHostName + apiLegoV3
-    private static let baseUrl = URL(string: base)!
+    static let scheme = "https://"
+    static let rebrickableHostName = "rebrickable.com"
+    static let apiLegoV3 = "/api/v3/lego"
+    static let base = scheme + rebrickableHostName + apiLegoV3
+    static let baseUrl = URL(string: base)!
 
     static let colors = "colors"
     static let elements = "elements"
@@ -26,24 +26,53 @@ struct Endpoint {
 
     static let tokenUrl = baseUrl.appendingPath(token)
 
+    static func colors(page: Int?, pageSize: Int?) -> URL {
+        colorsUrl
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
+    }
+
     static func color(with id: Int) -> URL {
         colorsUrl.appendingPath("\(id)")
     }
     
-    static func elements(with id: String) -> URL {
+    static func element(with id: String) -> URL {
         elementsUrl.appendingPath("\(id)")
     }
 
-    static func minifig(with setNum: String) -> URL {
-        minifigsUrl.appendingPath("\(setNum)")
+    static func minifigs(page: Int?, pageSize: Int?) -> URL {
+        minifigsUrl
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
-    static func minifigParts(with setNum: String) -> URL {
-        minifig(with: setNum).appendingPath(parts)
+    static func minifig(figNum: String, page: Int?, pageSize: Int?) -> URL {
+        minifigsUrl
+            .appendingPath("\(figNum)")
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
-    static func minifigSets(with setNum: String) -> URL {
-        minifig(with: setNum).appendingPath(sets)
+    static func minifigParts(figNum: String, page: Int?, pageSize: Int?) -> URL {
+        minifigsUrl
+            .appendingPath("\(figNum)")
+            .appendingPath(parts)
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
+    }
+
+    static func minifigSets(figNum: String, page: Int?, pageSize: Int?) -> URL {
+        minifigsUrl
+            .appendingPath("\(figNum)")
+            .appendingPath(sets)
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
+    }
+
+    static func partCategories(page: Int?, pageSize: Int?) -> URL {
+        partCategoriesUrl
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
     static func partCategory(with id: Int) -> URL {
@@ -54,26 +83,53 @@ struct Endpoint {
         partsUrl.appendingPath("\(partNum)")
     }
 
-    static func partColors(partNum: String) -> URL {
-        part(with: partNum).appendingPath(colors)
+    static func partColors(partNum: String, page: Int?, pageSize: Int?) -> URL {
+        partsUrl
+            .appendingPath("\(partNum)")
+            .appendingPath(colors)
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
-    static func set(partNum: String, colorId: String) -> URL {
-        partColors(partNum: partNum)
+    static func sets(page: Int?, pageSize: Int?) -> URL {
+        setsUrl
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
+    }
+
+    static func set(partNum: String, colorId: String, page: Int?, pageSize: Int?) -> URL {
+        partsUrl
+            .appendingPath("\(partNum)")
             .appendingPath("\(colorId)")
             .appendingPath(sets)
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
     static func set(setNum: String) -> URL {
         setsUrl.appendingPath("\(setNum)")
     }
 
-    static func inventoryMinifigs(with setNum: String) -> URL {
-        set(setNum: setNum).appendingPath(minifigs)
+    static func inventoryMinifigs(setNum: String, page: Int?, pageSize: Int?) -> URL {
+        setsUrl
+            .appendingPath("\(setNum)")
+            .appendingPath(minifigs)
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
-    static func inventoryParts(with setNum: String) -> URL {
-        set(setNum: setNum).appendingPath(parts)
+    static func inventoryParts(setNum: String, page: Int?, pageSize: Int?) -> URL {
+        setsUrl
+            .appendingPath("\(setNum)")
+            .appendingPath(parts)
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
+    }
+
+    static func themes(page: Int?, pageSize: Int?) -> URL {
+        themesUrl
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
     static func theme(with id: Int) -> URL {
