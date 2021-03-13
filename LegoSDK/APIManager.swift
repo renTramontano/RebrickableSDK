@@ -29,6 +29,23 @@ final class APIManager {
 }
 
 extension APIManager {
+    func getItem<T: Codable>(with url: URL) -> AnyPublisher<T, LegoError> {
+        makeRequest(to: url, withHttpMethod: .get)
+            .map { $0.data }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapToLegoError()
+            .eraseToAnyPublisher()
+    }
+
+    func getResults<T: Codable & Hashable>(with url: URL) -> AnyPublisher<[T], LegoError> {
+        let pageResponse: AnyPublisher<PageResponse<T>, LegoError> = getItem(with: url)
+        return pageResponse
+            .map { $0.results }
+            .eraseToAnyPublisher()
+    }
+}
+
+extension APIManager {
     public enum HttpMethod: String {
         case get = "GET"
         case post = "POST"

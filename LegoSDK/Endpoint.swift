@@ -14,7 +14,12 @@ struct Endpoint {
     static let parts = "parts"
     static let sets = "sets"
     static let themes = "themes"
+
     static let token = "_token"
+    static let users = "users"
+    static let allParts = "allparts"
+    static let build = "build"
+    static let lostParts = "lost_parts"
     
     static let colorsUrl = baseUrl.appendingDirPath(colors)
     static let elementsUrl = baseUrl.appendingDirPath(elements)
@@ -25,6 +30,7 @@ struct Endpoint {
     static let themesUrl = baseUrl.appendingDirPath(themes)
     
     static let tokenUrl = baseUrl.appendingDirPath(token)
+    static let usersUrl = baseUrl.appendingDirPath(users)
     
     static func colors(page: Int?, pageSize: Int?) -> URL {
         colorsUrl
@@ -135,5 +141,28 @@ struct Endpoint {
     
     static func theme(with id: Int) -> URL {
         themesUrl.appendingDirPath("\(id)")
+    }
+
+    static func allParts(token: String, page: Int?, pageSize: Int?) -> URL {
+        usersUrl
+            .appendingDirPath(token)
+            .appendingDirPath(allParts)
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
+    }
+
+    static func build(token: String, setNum: String) -> URL {
+        usersUrl
+            .appendingDirPath(token)
+            .appendingDirPath(build)
+            .appendingDirPath(setNum)
+    }
+
+    static func lostParts(token: String, page: Int?, pageSize: Int?) -> URL {
+        usersUrl
+            .appendingDirPath(token)
+            .appendingDirPath(lostParts)
+            .appendingQueryItem(name: "page", value: page)
+            .appendingQueryItem(name: "page_size", value: pageSize)
     }
 }

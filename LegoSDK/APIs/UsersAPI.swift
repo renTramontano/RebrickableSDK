@@ -20,4 +20,16 @@ public final class UsersAPI {
                   receiveValue: { self.userToken = $0 })
             .store(in: &bag)
     }
+
+    public func getAllParts(page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<[LegoUserPart], LegoError> {
+        apiManger.getResults(with: Endpoint.allParts(token: userToken ?? "", page: page, pageSize: pageSize))
+    }
+
+    public func getBuild(setNum: String) -> AnyPublisher<LegoBuild, LegoError> {
+        apiManger.getItem(with: Endpoint.build(token: userToken ?? "", setNum: setNum))
+    }
+
+    public func getLostParts(page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<[LegoLostPart], LegoError> {
+        apiManger.getResults(with: Endpoint.lostParts(token: userToken ?? "", page: page, pageSize: pageSize))
+    }
 }
