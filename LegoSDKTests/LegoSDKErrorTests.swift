@@ -20,7 +20,7 @@ class LegoAPIErrorTests: UnitTestCase {
             })
             .buildAndStart()
         // WHEN
-        cancellable = legoApi.getLegoColors()
+        cancellable = legoApi.getColors()
             // THEN
             .print()
             .sink(receiveCompletion: { print($0) },
