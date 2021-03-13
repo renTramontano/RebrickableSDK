@@ -16,15 +16,15 @@ struct Endpoint {
     static let themes = "themes"
     static let token = "_token"
 
-    static let colorsUrl = baseUrl.appendingPath(colors)
-    static let elementsUrl = baseUrl.appendingPath(elements)
-    static let minifigsUrl = baseUrl.appendingPath(minifigs)
-    static let partCategoriesUrl = baseUrl.appendingPath(partCategories)
-    static let partsUrl = baseUrl.appendingPath(parts)
-    static let setsUrl = baseUrl.appendingPath(sets)
-    static let themesUrl = baseUrl.appendingPath(themes)
+    static let colorsUrl = baseUrl.appendingDirPath(colors)
+    static let elementsUrl = baseUrl.appendingDirPath(elements)
+    static let minifigsUrl = baseUrl.appendingDirPath(minifigs)
+    static let partCategoriesUrl = baseUrl.appendingDirPath(partCategories)
+    static let partsUrl = baseUrl.appendingDirPath(parts)
+    static let setsUrl = baseUrl.appendingDirPath(sets)
+    static let themesUrl = baseUrl.appendingDirPath(themes)
 
-    static let tokenUrl = baseUrl.appendingPath(token)
+    static let tokenUrl = baseUrl.appendingDirPath(token)
 
     static func colors(page: Int?, pageSize: Int?) -> URL {
         colorsUrl
@@ -33,35 +33,37 @@ struct Endpoint {
     }
 
     static func color(with id: Int) -> URL {
-        colorsUrl.appendingPath("\(id)")
+        colorsUrl.appendingDirPath("\(id)")
     }
     
     static func element(with id: String) -> URL {
-        elementsUrl.appendingPath("\(id)")
+        elementsUrl.appendingDirPath("\(id)")
     }
 
-    static func minifigs(page: Int?, pageSize: Int?) -> URL {
+    static func minifigs(inSetNum: String?, inThemeId: String?, page: Int?, pageSize: Int?) -> URL {
         minifigsUrl
+            .appendingQueryItem(name: "in_set_num", value: inSetNum)
+            .appendingQueryItem(name: "in_theme_id", value: inThemeId)
             .appendingQueryItem(name: "page", value: page)
             .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
     static func minifig(with figNum: String) -> URL {
-        minifigsUrl.appendingPath("\(figNum)")
+        minifigsUrl.appendingDirPath("\(figNum)")
     }
 
     static func minifigParts(figNum: String, page: Int?, pageSize: Int?) -> URL {
         minifigsUrl
-            .appendingPath("\(figNum)")
-            .appendingPath(parts)
+            .appendingDirPath("\(figNum)")
+            .appendingDirPath(parts)
             .appendingQueryItem(name: "page", value: page)
             .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
     static func minifigSets(figNum: String, page: Int?, pageSize: Int?) -> URL {
         minifigsUrl
-            .appendingPath("\(figNum)")
-            .appendingPath(sets)
+            .appendingDirPath("\(figNum)")
+            .appendingDirPath(sets)
             .appendingQueryItem(name: "page", value: page)
             .appendingQueryItem(name: "page_size", value: pageSize)
     }
@@ -73,53 +75,54 @@ struct Endpoint {
     }
 
     static func partCategory(with id: Int) -> URL {
-        partCategoriesUrl.appendingPath("\(id)")
+        partCategoriesUrl.appendingDirPath("\(id)")
     }
 
     static func part(with partNum: String) -> URL {
-        partsUrl.appendingPath("\(partNum)")
+        partsUrl.appendingDirPath("\(partNum)")
     }
 
     static func partColors(partNum: String, page: Int?, pageSize: Int?) -> URL {
         partsUrl
-            .appendingPath("\(partNum)")
-            .appendingPath(colors)
+            .appendingDirPath("\(partNum)")
+            .appendingDirPath(colors)
             .appendingQueryItem(name: "page", value: page)
             .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
-    static func sets(page: Int?, pageSize: Int?) -> URL {
+    static func sets(themeId: String?, page: Int?, pageSize: Int?) -> URL {
         setsUrl
+            .appendingQueryItem(name: "theme_id", value: themeId)
             .appendingQueryItem(name: "page", value: page)
             .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
     static func set(partNum: String, colorId: String, page: Int?, pageSize: Int?) -> URL {
         partsUrl
-            .appendingPath("\(partNum)")
-            .appendingPath(colors)
-            .appendingPath("\(colorId)")
-            .appendingPath(sets)
+            .appendingDirPath("\(partNum)")
+            .appendingDirPath(colors)
+            .appendingDirPath("\(colorId)")
+            .appendingDirPath(sets)
             .appendingQueryItem(name: "page", value: page)
             .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
     static func set(setNum: String) -> URL {
-        setsUrl.appendingPath("\(setNum)")
+        setsUrl.appendingDirPath("\(setNum)")
     }
 
     static func inventoryMinifigs(setNum: String, page: Int?, pageSize: Int?) -> URL {
         setsUrl
-            .appendingPath("\(setNum)")
-            .appendingPath(minifigs)
+            .appendingDirPath("\(setNum)")
+            .appendingDirPath(minifigs)
             .appendingQueryItem(name: "page", value: page)
             .appendingQueryItem(name: "page_size", value: pageSize)
     }
 
     static func inventoryParts(setNum: String, page: Int?, pageSize: Int?) -> URL {
         setsUrl
-            .appendingPath("\(setNum)")
-            .appendingPath(parts)
+            .appendingDirPath("\(setNum)")
+            .appendingDirPath(parts)
             .appendingQueryItem(name: "page", value: page)
             .appendingQueryItem(name: "page_size", value: pageSize)
     }
@@ -131,12 +134,6 @@ struct Endpoint {
     }
 
     static func theme(with id: Int) -> URL {
-        themesUrl.appendingPath("\(id)")
-    }
-}
-
-fileprivate extension URL {
-    func appendingPath(_ path: String) -> URL {
-        appendingPathComponent(path, isDirectory: true)
+        themesUrl.appendingDirPath("\(id)")
     }
 }

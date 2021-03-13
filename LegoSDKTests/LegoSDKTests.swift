@@ -16,7 +16,7 @@ class LegoAPITests: UnitTestCase {
     func testGetLegoColorWithId() throws {
         try getTest(mock: LegoColor.mock(),
                     endpoint: Endpoint.colors,
-                    publisher: legoApi.getLegoColor(with: 1))
+                    publisher: legoApi.getLegoColorDetails(with: 1))
     }
 
     func testGetLegoElement() throws {
@@ -58,7 +58,7 @@ class LegoAPITests: UnitTestCase {
     func testGetLegoPartCategoriesWithId() throws {
         try getTest(mock: LegoPartCategory.mock(),
                     endpoint: Endpoint.elements,
-                    publisher: legoApi.getLegoPartCategory(with: 49))
+                    publisher: legoApi.getLegoPartCategoryDetails(with: 49))
     }
 
     func testGetLegoParts() throws {
@@ -70,7 +70,7 @@ class LegoAPITests: UnitTestCase {
     func testGetLegoPartWithId() throws {
         try getTest(mock: LegoPart.mock(),
                     endpoint: Endpoint.parts,
-                    publisher: legoApi.getLegoPart(with: "39381"))
+                    publisher: legoApi.getLegoPartDetails(with: "39381"))
     }
 
     func testGetLegoPartColorsWithPartNum() throws {
@@ -94,7 +94,7 @@ class LegoAPITests: UnitTestCase {
     func testGetLegoSet() throws {
         try getTest(mock: LegoSet.mock(),
                     endpoint: Endpoint.sets,
-                    publisher: legoApi.getLegoSet(with: "0011-2"))
+                    publisher: legoApi.getLegoSetDetails(with: "0011-2"))
     }
 
     func testGetLegoInventoryMinifigsWithSetNum() throws {

@@ -12,7 +12,7 @@ public final class LegoAPI {
         getResults(with: Endpoint.colors(page: page, pageSize: pageSize))
     }
 
-    public func getLegoColor(with id: Int) -> AnyPublisher<LegoColor, LegoError> {
+    public func getLegoColorDetails(with id: Int) -> AnyPublisher<LegoColor, LegoError> {
         get(with: Endpoint.color(with: id))
     }
 
@@ -20,8 +20,8 @@ public final class LegoAPI {
         get(with: Endpoint.element(with: id))
     }
 
-    public func getLegoMinifigures(page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<[LegoSet], LegoError> {
-        getResults(with: Endpoint.minifigs(page: page, pageSize: pageSize))
+    public func getLegoMinifigures(inSetNum: String? = nil, inThemeId: String? = nil, page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<[LegoSet], LegoError> {
+        getResults(with: Endpoint.minifigs(inSetNum: inSetNum, inThemeId: inSetNum, page: page, pageSize: pageSize))
     }
 
     public func getLegoMinifigureDetails(figNum: String) -> AnyPublisher<LegoSet, LegoError> {
@@ -40,7 +40,7 @@ public final class LegoAPI {
         getResults(with: Endpoint.partCategories(page: page, pageSize: pageSize))
     }
 
-    public func getLegoPartCategory(with id: Int) -> AnyPublisher<LegoPartCategory, LegoError> {
+    public func getLegoPartCategoryDetails(with id: Int) -> AnyPublisher<LegoPartCategory, LegoError> {
         get(with: Endpoint.partCategory(with: id))
     }
 
@@ -48,7 +48,7 @@ public final class LegoAPI {
         getResults(with: Endpoint.partsUrl)
     }
 
-    public func getLegoPart(with id: String) -> AnyPublisher<LegoPart, LegoError> {
+    public func getLegoPartDetails(with id: String) -> AnyPublisher<LegoPart, LegoError> {
         get(with: Endpoint.part(with: id))
     }
 
@@ -60,11 +60,11 @@ public final class LegoAPI {
         getResults(with: Endpoint.set(partNum: partNum, colorId: colorID, page: page, pageSize: pageSize))
     }
 
-    public func getLegoSets(page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<[LegoSet], LegoError> {
-        getResults(with: Endpoint.sets(page: page, pageSize: pageSize))
+    public func getLegoSets(themeId: String? = nil, page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<[LegoSet], LegoError> {
+        getResults(with: Endpoint.sets(themeId: themeId, page: page, pageSize: pageSize))
     }
 
-    public func getLegoSet(with setNum: String) -> AnyPublisher<LegoSet, LegoError> {
+    public func getLegoSetDetails(with setNum: String) -> AnyPublisher<LegoSet, LegoError> {
         get(with: Endpoint.set(setNum: setNum))
     }
 
