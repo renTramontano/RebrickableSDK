@@ -21,6 +21,16 @@ public final class UsersAPI {
             .store(in: &bag)
     }
 
+    public func userAuthentication2(username: String, password: String) {
+        let httpBodyParameters = ["username": username, "password": password]
+        let response: AnyPublisher<String, LegoError> = apiManger.request(to: Endpoint.tokenUrl, httpBody: httpBodyParameters, withHttpMethod: .post)
+        response
+            .assertNoFailure()
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in self.userToken = $0 }
+            .store(in: &bag)
+    }
+
     public func getAllParts(page: Int? = nil, pageSize: Int? = nil) -> AnyPublisher<[LegoUserPart], LegoError> {
         apiManger.getResults(with: Endpoint.allParts(token: userToken ?? "", page: page, pageSize: pageSize))
     }

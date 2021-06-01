@@ -43,6 +43,14 @@ extension APIManager {
             .map { $0.results }
             .eraseToAnyPublisher()
     }
+
+    public func request<T: Codable & Hashable>(to url: URL, httpBody parameters: [String: String] = [:], withHttpMethod httpMethod: HttpMethod) -> AnyPublisher<T, LegoError> {
+    makeRequest(to: Endpoint.tokenUrl, httpBody: parameters, withHttpMethod: httpMethod)
+        .map { $0.data }
+        .decode(type: T.self, decoder: JSONDecoder())
+        .mapToLegoError()
+        .eraseToAnyPublisher()
+    }
 }
 
 extension APIManager {
