@@ -1,5 +1,5 @@
 import Foundation
-import LegoSDK
+import RebrickableSDK
 
 extension Int {
     static func mock() -> Int {

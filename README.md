@@ -5,7 +5,7 @@
 Add the following to your **Cartfile**:
 
 ```
-github "https://github.com/renTramontano/LegoSDK"
+github "https://github.com/renTramontano/RebrickableSDK"
 ```
 then:
 ```
@@ -19,4 +19,4 @@ let legoApi = LegoAPI(apiKey: "<YOUR_API_KEY>")
 ```
 
 ## License
-LegoSDK is licensed under the MIT License. See the LICENSE file for more information.
+RebrickableSDK is licensed under the MIT License. See the LICENSE file for more information.

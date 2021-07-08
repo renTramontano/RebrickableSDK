@@ -1,4 +1,4 @@
-@testable import LegoSDK
+@testable import RebrickableSDK
 import XCTest
 import Swifter
 import Combine
