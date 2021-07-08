@@ -1,9 +1,9 @@
-@testable import LegoSDK
+@testable import RebrickableSDK
 import XCTest
 import Swifter
 import Combine
 
-class LegoSDKUsersAPITests: UnitTestCase {
+class RebrickableSDKUsersAPITests: UnitTestCase {
     private let legoApi = LegoAPI(apiKey: "262a544a78e1cbca7f70541ce6e6bc2c")
     private var cancellable: AnyCancellable?
 

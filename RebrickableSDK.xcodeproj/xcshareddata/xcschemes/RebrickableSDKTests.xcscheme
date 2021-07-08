@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F9A91D2725DDB77A00AE87BC"
-               BuildableName = "LegoSDK.framework"
-               BlueprintName = "LegoSDK"
-               ReferencedContainer = "container:LegoSDK.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "F9A91DAC25DE800100AE87BC"
-               BuildableName = "LegoSDKTests.xctest"
-               BlueprintName = "LegoSDKTests"
-               ReferencedContainer = "container:LegoSDK.xcodeproj">
+               BuildableName = "RebrickableSDKTests.xctest"
+               BlueprintName = "RebrickableSDKTests"
+               ReferencedContainer = "container:RebrickableSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,8 +26,19 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F9A91DAC25DE800100AE87BC"
+               BuildableName = "RebrickableSDKTests.xctest"
+               BlueprintName = "RebrickableSDKTests"
+               ReferencedContainer = "container:RebrickableSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -57,10 +54,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9A91D2725DDB77A00AE87BC"
-            BuildableName = "LegoSDK.framework"
-            BlueprintName = "LegoSDK"
-            ReferencedContainer = "container:LegoSDK.xcodeproj">
+            BlueprintIdentifier = "F9A91DAC25DE800100AE87BC"
+            BuildableName = "RebrickableSDKTests.xctest"
+            BlueprintName = "RebrickableSDKTests"
+            ReferencedContainer = "container:RebrickableSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -73,10 +70,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9A91D2725DDB77A00AE87BC"
-            BuildableName = "LegoSDK.framework"
-            BlueprintName = "LegoSDK"
-            ReferencedContainer = "container:LegoSDK.xcodeproj">
+            BlueprintIdentifier = "F9A91DAC25DE800100AE87BC"
+            BuildableName = "RebrickableSDKTests.xctest"
+            BlueprintName = "RebrickableSDKTests"
+            ReferencedContainer = "container:RebrickableSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
