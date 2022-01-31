@@ -10,7 +10,7 @@ class LegoAPIErrorTests: UnitTestCase {
     func testGetLegoColorsError() throws {
         // GIVEN
         try httpServerBuilder
-            
+
             .route("/colors", { (request, callCount) -> (HttpResponse) in
                 XCTAssertEqual(request.method, APIManager.HttpMethod.get.rawValue)
                 XCTAssertEqual(callCount, 1)

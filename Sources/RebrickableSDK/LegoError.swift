@@ -9,7 +9,7 @@ public enum LegoError: Error {
     case itemNotFound
     case throttledRequest
     case generic(Error)
-    
+
     var message: String {
         switch self {
             case .decode: return ""

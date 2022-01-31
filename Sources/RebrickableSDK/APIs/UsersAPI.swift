@@ -5,11 +5,11 @@ public final class UsersAPI {
     private var apiManger: APIManager
     private var userToken: String?
     private var bag = Set<AnyCancellable>()
-    
+
     public init(apiKey: String) {
         apiManger = APIManager(apiKey: apiKey)
     }
-    
+
     public func userAuthentication(username: String, password: String) {
         let httpBodyParameters = ["username": username, "password": password]
         apiManger.makeRequest(to: Endpoint.tokenUrl, httpBody: httpBodyParameters, withHttpMethod: .post)
