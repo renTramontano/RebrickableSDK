@@ -1,17 +1,6 @@
 **RebrickableSDK** is a framework that uses [Rebrickable APIs](https://rebrickable.com/api/v3/docs/?key=5d31bd9f6fe3ad39cbcc573bd64bada1) to build their own apps that want to use the Rebrickable database.
 
 ## Getting Started
-### Installation with Carthage
-Add the following to your **Cartfile**:
-
-```
-github "https://github.com/renTramontano/RebrickableSDK"
-```
-then:
-```
-carthage update --platform ios
-```
-
 ### Installation with Swift Package Manager
 Add the following to your **Package.swift**
 
